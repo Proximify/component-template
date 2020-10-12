@@ -2,7 +2,9 @@
 
 Template for the creation of component packages.
 
-See [Table of contents](docs/toc.md).
+<!-- The TOC can be provided inline as nested bullets or in a separate file. Regardless, this starter file should have links to other root-level doc files so that a reader can navigate all the documentation by reading the text and clicking on hyperlinks within it. -->
+
+-   [Table of contents](docs/toc.md)
 
 ## Getting started
 
