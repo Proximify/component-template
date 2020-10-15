@@ -58,7 +58,47 @@ MyComponent
 └── composer.json
 ```
 
-**Note:** Everything related to development and testing should be placed under the `dev` folder. The component should work in production without that folder.
+### Important considerations
+
+Assets related to documentation should be in `docs/assets/`. The assets that are needed by the component to do it's normal work go under the **root** `assets/` directory. The assets that are only needed for development should go under `dev/assets/`, and if the assets is only needed for testing, it can be should be placed under under `dev/tests/assets/`.
+
+The folders `docs` and `dev` are **not included** in production environments. Everything related to documentation should be placed under `docs` except for the entry point README.md. Everything related to development should be placed under the `dev` folder.
+
+Summary:
+
+1. The component must work without the `docs` and `dev` folders;
+1. All files related to the documentation must go under `docs` (expected for the `README.md`);
+1. All files related to development must fo under `dev`;
+1. Testing files must go under `dev/tests` (except for the entry point `dev/www` used for web-based testing).
+
+## Testing
+
+The component should be testable from the command line via well-documented composer arguments. For example, when the command
+
+```bash
+$ composer test:fetch arg1 arg2 ...
+```
+
+is run at the root of the project, it will perform a test named "fetch" with arguments arg1, arg2, etc.
+
+### Web-based testing
+
+The `dev/www` can be given as a visual dashboard for performing tests. Do not use that options as a way of avoiding providing CLI tests or CLI documentation. The `dev/www` is meant to be an alternative visual way to run tests.
+
+Some components can only be tested from within a webpage. In such cases, the `dev/www` folder is a mandatory as an entry point for the tests.
+
+## Shared resources
+
+Some components might need access to a database, the file system, or to daemons, such as cron jobs. When that's the case, they should:
+
+1. Require a proper resource manager, such as a `proximify/db-manager` or `proximify/cron-manager`.
+
+1. Define schemas in YAML located in a root `schemas/YYY/` folder, where YYY us the type of resource, such as `db` or `cron`.
+
+1. Define `install` and `update` scripts in `composer.json` so that the component registers one or more schemas with the appropriate resource manager. For example, 
+    ```bash
+    $ cd vendor/proximify/cron-manager && composer cron:register '../../schemas/cron'
+    ```
 
 ---
 
