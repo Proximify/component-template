@@ -4,7 +4,8 @@ Template for the creation of component packages.
 
 <!-- The TOC can be provided inline as nested bullets or in a separate file. Regardless, this starter file should have links to other root-level doc files so that a reader can navigate all the documentation by reading the text and clicking on hyperlinks within it. -->
 
--   [Table of contents](docs/toc.md)
+## Table of contents
+-  See [table of contents](docs/toc.md).
 
 ## Getting started
 
@@ -13,7 +14,7 @@ Template for the creation of component packages.
 1. Edit the composer.json to set the proper name of your component package (use lowercase, dash separated words).
 1. Renamed the main PHP and JSON files to the CamelCase name of the component.
 1. Edit the README and files under `docs/` to include the documentation for your component. Use breadcrumbs at the top of each doc page to show its location in the Table of Contents (TOC). Keep the `toc.md` file up to date with the latest TOC of your documentation.
-1. If the packages depends of foreign packages (e.g. NPM, PIP, etc), use the [ForeingPackages](https://packagist.org/packages/proximify/foreign-packages) component to install and update them when your component is installed or updated.
+1. If the packages depends of foreign packages (e.g. NPM, PIP, etc), use the [ForeignPackages](https://packagist.org/packages/proximify/foreign-packages) component to install and update them when your component is installed or updated.
 1. Add CLI actions for testing your component bu using the [CLI Actions](https://packagist.org/packages/proximify/cli-actions) component.
 1. If possible to test your component within a webpage, add an `index.php` file at `dev/www` and test that it works by running `cd dev/www && php -S localhost:8000` and visiting `http://localhost:8000` with your browser.
 1. Submit your project to **Packagist** of it is public and test that it works by adding it as a requirement to some other project.
