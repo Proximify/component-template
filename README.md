@@ -45,9 +45,10 @@ MyComponent
 │   │   └── example.svg
 │   └── fonts
 ├── docs
+│   ├── toc.md
 │   └── intro.md
-├── settings
-│   └── MyComponent.json
+├── config
+│   └── settings.json
 ├── src
 │   └── MyComponent.php
 ├── dev
